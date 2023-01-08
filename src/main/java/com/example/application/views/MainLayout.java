@@ -6,6 +6,7 @@ import com.example.application.data.entity.User;
 import com.example.application.security.AuthenticatedUser;
 import com.example.application.views.home.HomeView;
 import com.example.application.views.laporan.LaporanView;
+import com.example.application.views.daftar_keluhan.Daftar_keluhanView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.avatar.Avatar;
@@ -76,8 +77,9 @@ public class MainLayout extends AppLayout {
         }
         if (accessChecker.hasAccess(LaporanView.class)) {
             nav.addItem(new AppNavItem("Laporan", LaporanView.class, "las la-file-alt"));
-
+            nav.addItem(new AppNavItem("daftar_keluhan", Daftar_keluhanView.class, "las la-file-alt"));
         }
+
 
         return nav;
     }
