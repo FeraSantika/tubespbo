@@ -56,6 +56,7 @@ public class LaporanView extends Div implements BeforeEnterObserver {
     private TextField alamat;
     private Checkbox status;
 
+    private final Button delete = new Button("Hapus");
     private final Button cancel = new Button("Cancel");
     private final Button save = new Button("Save");
 
@@ -116,6 +117,25 @@ public class LaporanView extends Div implements BeforeEnterObserver {
         // Bind fields. This is where you'd define e.g. validation rules
 
         binder.bindInstanceFields(this);
+
+        delete.addClickListener(e -> {
+                    try {
+                        if (this.userSadari == null) {
+                            Notification.show("No data selected!");
+                        } else {
+                            binder.writeBean(this.userSadari);
+
+                            userSadariService.delete(this.userSadari);
+                            clearForm();
+                            refreshGrid();
+                            Notification.show("data details stored.");
+                            UI.getCurrent().navigate(LaporanView.class);
+                        }
+                    } catch(ValidationException validationException){
+                        Notification.show("An exception happened while trying to store the data detail");
+                    }
+                }
+        );
 
         cancel.addClickListener(e -> {
             clearForm();
@@ -192,8 +212,9 @@ public class LaporanView extends Div implements BeforeEnterObserver {
         HorizontalLayout buttonLayout = new HorizontalLayout();
         buttonLayout.setClassName("button-layout");
         cancel.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
+        delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
-        buttonLayout.add(save, cancel);
+        buttonLayout.add(save, cancel, delete);
         editorLayoutDiv.add(buttonLayout);
     }
 

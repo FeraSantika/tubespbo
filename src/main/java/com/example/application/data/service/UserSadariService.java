@@ -24,9 +24,7 @@ public class UserSadariService {
         return repository.save(entity);
     }
 
-    public void delete(Long id) {
-        repository.deleteById(id);
-    }
+    public void delete(UserSadari id) { repository.delete(id); }
 
     public Page<UserSadari> list(Pageable pageable) {
         return repository.findAll(pageable);
@@ -39,5 +37,6 @@ public class UserSadariService {
     public int count() {
         return (int) repository.count();
     }
+
 
 }

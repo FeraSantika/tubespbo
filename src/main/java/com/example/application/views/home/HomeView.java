@@ -24,7 +24,7 @@ public class HomeView extends VerticalLayout {
         Image img = new Image("images/hasil kuisioner (6).png", "placeholder plant");
         img.setWidth("900px");
         add(img);
-//        add(new Paragraph("Selamat datang, lakukan SADARI minimal sebulan sekali🤗"));
+        add(new Paragraph("Selamat datang, lakukan SADARI minimal sebulan sekali🤗"));
 
         setSizeFull();
         setJustifyContentMode(JustifyContentMode.CENTER);
