@@ -78,12 +78,12 @@ public class MainLayout extends AppLayout {
         }
         if (accessChecker.hasAccess(LaporanView.class)) {
             nav.addItem(new AppNavItem("Laporan", LaporanView.class, "las la-file-alt"));
-<<<<<<< HEAD
+
             nav.addItem(new AppNavItem("daftar_keluhan", Daftar_keluhanView.class, "las la-file-alt"));
-=======
+
             nav.addItem(new AppNavItem("Biodata Sadari", BiodataView.class, "las la-file-alt"));
 
->>>>>>> 83e9e69 (menambahkan tampilan crud biodata sadari)
+
         }
 
 
